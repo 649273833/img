@@ -1,0 +1,22 @@
+    for(var i=0;i<100;i++){
+        Query(i)
+    }
+    function Query(i) {
+        let MyRequest = (callback) =>{
+            $.ajax({
+                type:'get',
+                url:'js/query.json',
+                async:true,
+                success:(res)=>{
+                    console.log(res)
+                    callback(i)
+                },
+                error:(err)=>{
+                    console.log(err)
+                }
+            })
+        }
+        MyRequest((e)=>{
+            console.log(e)
+        })
+    }
